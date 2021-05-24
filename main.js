@@ -70,3 +70,5 @@ var roastSelection = document.querySelector('#roast-selection');
 renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
+
+// What is preventDefault doing with form submit button? - Google this
