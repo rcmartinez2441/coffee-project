@@ -8,27 +8,25 @@
               crossorigin="anonymous">
         <link rel="stylesheet" href="style.css">
     </head>
-    <body>
-        <h1>Coffee!</h1>
-
-        <form>
-            <label for="roast-selection"></label>
-            <select id="roast-selection">
-                <option>light</option>
-                <option>medium</option>
-                <option>dark</option>
-            </select>
-            <input id="submit" type="submit"/>
-        </form>
-        <div class="container" id="table">
-            <div class="row">
-                <div class="">
-
+    <body class="container-fluid d-flex justify-content-around">
+        <div class="row">
+            <h1 class="col-12 text-center">Coffee!</h1>
+            <div class="row container">
+                <div class="row col-6" id="form-container">
+                    <form>
+                        <label for="roast-selection"></label>
+                        <select id="roast-selection">
+                            <option>light</option>
+                            <option>medium</option>
+                            <option>dark</option>
+                        </select>
+                        <input id="submit" type="submit"/>
+                    </form>
                 </div>
-
+                <div class="row col-6" id="coffee-container">
+                </div>
             </div>
         </div>
-
 
         <!--    <table>-->
         <!--        <thead>-->

@@ -1,18 +1,36 @@
 "use strict"
 
-function renderCoffee(coffee) {
-    var html = '<tr class="coffee">';
-    html += '<td>' + coffee.id + '</td>';
-    html += '<td>' + coffee.name + '</td>';
-    html += '<td>' + coffee.roast + '</td>';
-    html += '</tr>';
+function renderCoffee(currentCoffeeIndex) {
+    // var html = '<tr class="coffee">';
+    // html += '<td>' + coffee.id + '</td>';
+    // html += '<td>' + coffee.name + '</td>';
+    // html += '<td>' + coffee.roast + '</td>';
+    // html += '</tr>';
+    //
+    // return html;
 
-    return html;
+    // Stuff for coffee name
+    let coffeeContainer = document.getElementById('coffee-container');
+    let coffeeName = document.createElement('div');
+    let coffeeSubContainer = document.createElement('div');
+    coffeeSubContainer.setAttribute('class', 'col-6 row border border-primary');
+    coffeeName.setAttribute('class', 'col-6 border');
+    coffeeName.innerHTML = currentCoffeeIndex.name
+
+    // Stuff for coffee roast
+    let coffeeRoast = document.createElement('div');
+    coffeeRoast.setAttribute('class', 'col-6 text-muted');
+    coffeeRoast.innerHTML = currentCoffeeIndex.roast
+
+
+    coffeeSubContainer.appendChild(coffeeName);
+    coffeeSubContainer.appendChild(coffeeRoast);
+    coffeeContainer.appendChild(coffeeSubContainer);
 }
 
 function renderCoffees(coffees) {
     var html = '';
-    for(var i = coffees.length - 1; i >= 0; i--) {
+    for (var i = coffees.length - 1; i >= 0; i--) {
         html += renderCoffee(coffees[i]);
     }
     return html;
@@ -22,7 +40,7 @@ function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
     var selectedRoast = roastSelection.value;
     var filteredCoffees = [];
-    coffees.forEach(function(coffee) {
+    coffees.forEach(function (coffee) {
         if (coffee.roast === selectedRoast) {
             filteredCoffees.push(coffee);
         }
