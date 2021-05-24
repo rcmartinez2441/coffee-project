@@ -17,16 +17,15 @@ function renderCoffee(currentCoffee) {
 
     coffeeSubContainer.appendChild(coffeeName);
     coffeeSubContainer.appendChild(coffeeRoast);
-    console.log(coffeeSubContainer);
 
     return coffeeSubContainer;
 }
 
 function renderCoffees(coffeeArray) {
     let coffeeContainer = document.getElementById('coffee-container');
-    coffeeContainer.replaceChildren();
+    coffeeContainer.innerHTML = '';
     for (let i = coffeeArray.length-1; i >= 0; i--) {
-        coffeeContainer.appendChild( renderCoffee(coffees[i]) );
+        coffeeContainer.appendChild( renderCoffee(coffeeArray[i]) );
     }
 
     return coffeeContainer;
@@ -42,8 +41,8 @@ function updateCoffees(e) {
         }
     });
     //Doesnt know what is on the current coffee container
-
-    document.getElementById('coffee-container') = renderCoffees(filteredCoffees);
+    console.log(filteredCoffees);
+    renderCoffees(filteredCoffees);
 }
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
