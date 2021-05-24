@@ -15,7 +15,7 @@ function renderCoffee(currentCoffeeIndex) {
     let coffeeSubContainer = document.createElement('div');
     coffeeSubContainer.setAttribute('class', 'col-6 row border border-primary');
     coffeeName.setAttribute('class', 'col-6 border');
-    coffeeName.innerHTML = currentCoffeeIndex.name
+    coffeeName.innerHTML = currentCoffeeIndex.name;
 
     // Stuff for coffee roast
     let coffeeRoast = document.createElement('div');
