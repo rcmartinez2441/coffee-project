@@ -1,39 +1,35 @@
 "use strict"
 
-function renderCoffee(currentCoffeeIndex) {
-    // var html = '<tr class="coffee">';
-    // html += '<td>' + coffee.id + '</td>';
-    // html += '<td>' + coffee.name + '</td>';
-    // html += '<td>' + coffee.roast + '</td>';
-    // html += '</tr>';
-    //
-    // return html;
-
+function renderCoffee(currentCoffee) {
     // Stuff for coffee name
-    let coffeeContainer = document.getElementById('coffee-container');
-    let coffeeName = document.createElement('div');
     let coffeeSubContainer = document.createElement('div');
-    coffeeSubContainer.setAttribute('class', 'col-6 row border border-primary');
-    coffeeName.setAttribute('class', 'col-6 border');
-    coffeeName.innerHTML = currentCoffeeIndex.name;
+
+    let coffeeName = document.createElement('div');
+    coffeeSubContainer.setAttribute('class', 'col-6 row pb-1');
+    coffeeName.setAttribute('class', 'col-6 pr-1 d-flex flex-flow justify-content-end');
+    coffeeName.style.fontSize = '21px';
+    coffeeName.innerHTML = currentCoffee.name;
 
     // Stuff for coffee roast
     let coffeeRoast = document.createElement('div');
-    coffeeRoast.setAttribute('class', 'col-6 text-muted');
-    coffeeRoast.innerHTML = currentCoffeeIndex.roast
-
+    coffeeRoast.setAttribute('class', 'col-6 p-0 text-muted d-flex align-items-end');
+    coffeeRoast.innerHTML = currentCoffee.roast;
 
     coffeeSubContainer.appendChild(coffeeName);
     coffeeSubContainer.appendChild(coffeeRoast);
-    coffeeContainer.appendChild(coffeeSubContainer);
+    console.log(coffeeSubContainer);
+
+    return coffeeSubContainer;
 }
 
-function renderCoffees(coffees) {
-    var html = '';
-    for (var i = coffees.length - 1; i >= 0; i--) {
-        html += renderCoffee(coffees[i]);
+function renderCoffees(coffeeArray) {
+    let coffeeContainer = document.getElementById('coffee-container');
+    coffeeContainer.replaceChildren();
+    for (let i = coffeeArray.length-1; i >= 0; i--) {
+        coffeeContainer.appendChild( renderCoffee(coffees[i]) );
     }
-    return html;
+
+    return coffeeContainer;
 }
 
 function updateCoffees(e) {
@@ -45,7 +41,9 @@ function updateCoffees(e) {
             filteredCoffees.push(coffee);
         }
     });
-    tbody.innerHTML = renderCoffees(filteredCoffees);
+    //Doesnt know what is on the current coffee container
+
+    document.getElementById('coffee-container') = renderCoffees(filteredCoffees);
 }
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
@@ -66,10 +64,10 @@ var coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 
-var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
 
-tbody.innerHTML = renderCoffees(coffees);
+//This will call function when page loads
+renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);

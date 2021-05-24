@@ -8,12 +8,12 @@
               crossorigin="anonymous">
         <link rel="stylesheet" href="style.css">
     </head>
-    <body class="container d-flex justify-content-around">
+    <body class="container">
         <div class="row">
             <h1 class="col-12 text-center">Coffee!</h1>
-            <div class="row container-fluid border">
-                <div class="row col-6" id="form-container">
-                    <form>
+            <div class="row container-fluid  d-flex justify-content-around">
+                <div class="row col-5" id="form-container">
+                    <form class="col-12">
                         <label for="roast-selection"></label>
                         <select id="roast-selection">
                             <option>light</option>
@@ -23,7 +23,7 @@
                         <input id="submit" type="submit"/>
                     </form>
                 </div>
-                <div class="row col-6" id="coffee-container">
+                <div class="row col-7 d-flex justify-content-around" id="coffee-container">
                 </div>
             </div>
         </div>
