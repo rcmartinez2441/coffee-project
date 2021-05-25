@@ -31,6 +31,7 @@ function renderCoffees(coffeeArray) {
     return coffeeContainer;
 }
 
+
 function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
     var selectedRoast = roastSelection.value;
@@ -44,6 +45,31 @@ function updateCoffees(e) {
     console.log(filteredCoffees);
     renderCoffees(filteredCoffees);
 }
+
+function coffeeSearchBar() {
+    let formContainer = document.getElementById(`form-container`);
+    let newNode = document.createElement('input');
+    newNode.setAttribute('type', 'text');
+    newNode.setAttribute('id', 'searchCoffee');
+    formContainer.insertBefore(newNode, submitButton);
+}
+
+function filterCoffee() {
+    let input = searchCoffee.value.toUpperCase();
+    let i, txtValue, arrayContainer, filterCoffees;
+    filterCoffees = [];
+    arrayContainer = document.getElementById('coffee-container');
+    console.log(arrayContainer);
+
+    for (i = 0; i < coffees.length; i++) {
+        txtValue = coffees[i].name;
+        if (txtValue.toUpperCase().indexOf(input) > -1) {
+            filterCoffees.push(coffees[i]);
+        }
+        console.log(filterCoffees);
+    } renderCoffees(filterCoffees);
+}
+
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var coffees = [
@@ -72,3 +98,12 @@ renderCoffees(coffees);
 submitButton.addEventListener('click', updateCoffees);
 
 // What is preventDefault doing with form submit button? - Google this
+
+
+coffeeSearchBar();
+
+let searchCoffee = document.querySelector('#searchCoffee');
+searchCoffee.addEventListener('input',filterCoffee);
+console.log(searchCoffee);
+
+
