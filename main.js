@@ -1,22 +1,27 @@
 "use strict"
 
 function renderCoffee(currentCoffee) {
-    // Stuff for coffee name
     let coffeeSubContainer = document.createElement('div');
+    coffeeSubContainer.setAttribute('class', 'col-6 p-0 border-bottom mb-1');
+    //<div class="
 
+    let perCoffeeSubRow = document.createElement('div');
+    perCoffeeSubRow.setAttribute('class', 'row mb-1');
+
+    // Stuff for coffee name
     let coffeeName = document.createElement('div');
-    coffeeSubContainer.setAttribute('class', 'col-6 row pb-1');
-    coffeeName.setAttribute('class', 'col-6 pr-1 d-flex flex-flow justify-content-end');
+    coffeeName.setAttribute('class', 'col-6 p-0 d-inline-flex text-nowrap justify-content-end');
     coffeeName.style.fontSize = '21px';
     coffeeName.innerHTML = currentCoffee.name;
 
     // Stuff for coffee roast
     let coffeeRoast = document.createElement('div');
-    coffeeRoast.setAttribute('class', 'col-6 p-0 text-muted d-flex align-items-end');
+    coffeeRoast.setAttribute('class', 'col-6 pl-1 pr-0 text-muted d-inline-flex justify-content-start align-items-center');
     coffeeRoast.innerHTML = currentCoffee.roast;
 
-    coffeeSubContainer.appendChild(coffeeName);
-    coffeeSubContainer.appendChild(coffeeRoast);
+    coffeeSubContainer.appendChild(perCoffeeSubRow)
+    perCoffeeSubRow.appendChild(coffeeName);
+    perCoffeeSubRow.appendChild(coffeeRoast);
 
     return coffeeSubContainer;
 }
@@ -48,10 +53,20 @@ function updateCoffees(e) {
 
 function coffeeSearchBar() {
     let formContainer = document.getElementById(`form-container`);
+
     let newNode = document.createElement('input');
     newNode.setAttribute('type', 'text');
     newNode.setAttribute('id', 'searchCoffee');
+    newNode.setAttribute('class', 'col-12 m-1 my-1 mx-1 p-1')
+
+    //For label
+    let newNodeLabel = document.createElement('label')
+    newNodeLabel.setAttribute('for','searchCoffee');
+    newNodeLabel.setAttribute('class', 'pt-1 pl-1 ')
+    newNodeLabel.innerHTML = `Coffee Name`
+
     formContainer.insertBefore(newNode, submitButton);
+    formContainer.insertBefore(newNodeLabel, newNode);
 }
 
 function filterCoffee() {

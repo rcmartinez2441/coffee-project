@@ -8,22 +8,37 @@
               crossorigin="anonymous">
         <link rel="stylesheet" href="style.css">
     </head>
-    <body class="container">
-        <div class="row">
+    <body class="container-fluid">
+        <div class="row container-fluid m-auto">
             <h1 class="col-12 text-center">Coffee!</h1>
-            <div class="row container-fluid  d-flex justify-content-around">
-                <div class="row col-5">
-                    <form class="col-12" id="form-container">
-                        <label for="roast-selection"></label>
-                        <select id="roast-selection">
-                            <option>light</option>
-                            <option>medium</option>
-                            <option>dark</option>
-                        </select>
-                        <input id="submit" type="submit"/>
-                    </form>
+            <div class="row container-fluid border d-flex justify-content-around">
+                <!-- This is left side -->
+                <div class="order-1 col-5">
+                    <div class="row">
+                        <form class="col-12">
+                            <div class="row" id="form-container">
+                                <label class="pt-1 pl-1" for="roast-selection">Roast</label>
+                                <select class="col-12 my-1 mx-1 p-1" id="roast-selection">
+                                    <option>Light</option>
+                                    <option>Medium</option>
+                                    <option>Dark</option>
+                                </select>
+                                <input  class="col-12 m-1 btn btn-primary" id="submit" type="submit"/>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div class="row col-7 d-flex justify-content-around" id="coffee-container">
+
+                <!-- This is right side -->
+                <div class="order-0 col-7 d-flex justify-content-around border border-danger container">
+                    <div class="row container" id="coffee-container">
+                        <!--
+                            <div id="coffeeSubContainer">
+                                   Coffee Name
+                                   Coffee Roast
+                            </div>
+                        -->
+                    </div>
                 </div>
             </div>
         </div>
