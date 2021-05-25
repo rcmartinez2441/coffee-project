@@ -85,6 +85,46 @@ function filterCoffee() {
     } renderCoffees(filterCoffees);
 }
 
+function formGenesis (){
+    let formContainer = document.getElementById('form-holder-div-thinger-mabobber');
+    let addaCoffee = document.createElement('form');
+    addaCoffee.setAttribute('id','addaCoffee');
+    let formDivRow = document.createElement('div');
+    formDivRow.setAttribute('class', 'row');
+
+    let coffeeHeader = document.createElement('h2');
+    coffeeHeader.innerHTML = 'Add a Coffee';
+    coffeeHeader.setAttribute('class', 'col-12 d-flex justify-content-center m-3' );
+    formContainer.appendChild(coffeeHeader);
+
+    let roastGenesisLabel = document.createElement('label');
+
+    let formContainerGenesis = document.getElementById('form-container');
+    let cloneContainerGenesis = formContainerGenesis.cloneNode(true);
+        formContainer.appendChild(cloneContainerGenesis);
+
+    let labelCollection = document.getElementsByTagName('label');
+        labelCollection[2].removeAttribute('id');
+        labelCollection[2].setAttribute('id','roastLabelAmended');
+        labelCollection[3].removeAttribute('id');
+        labelCollection[3].setAttribute('id','coffeeLabelAmended');
+
+    let selectCollection = document.getElementsByTagName('select');
+        console.log(selectCollection);
+        selectCollection[1].removeAttribute('id');
+        selectCollection[1].setAttribute('id','selectLabelAmended');
+
+    let inputCollection = document.getElementsByTagName('input');
+        console.log(inputCollection);
+        inputCollection[2].removeAttribute('id');
+        inputCollection[2].setAttribute('id','inputSearchAmended')
+
+         inputCollection[3].removeAttribute('id');
+         inputCollection[3].setAttribute('id','submitAmended')
+
+}
+
+
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var coffees = [
@@ -121,4 +161,5 @@ let searchCoffee = document.querySelector('#searchCoffee');
 searchCoffee.addEventListener('input',filterCoffee);
 console.log(searchCoffee);
 
+formGenesis();
 
