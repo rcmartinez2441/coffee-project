@@ -2,20 +2,20 @@
 
 function renderCoffee(currentCoffee) {
 	let coffeeSubContainer = document.createElement('div');
-	coffeeSubContainer.setAttribute('class', ' col-6 p-0 btn btn-outline-info');
+	coffeeSubContainer.setAttribute('class', 'buttonColor col-6 p-0 btn btn-outline-info d-flex justify-content-center');
 
 	let perCoffeeSubRow = document.createElement('div');
-	perCoffeeSubRow.setAttribute('class', 'row mb-1');
+	perCoffeeSubRow.setAttribute('class', 'row mb-1' );
 
 	// Stuff for coffee name
 	let coffeeName = document.createElement('div');
-	coffeeName.setAttribute('class', 'col-6 p-0 d-inline-flex text-nowrap justify-content-end');
+	coffeeName.setAttribute('class', 'col-12 p-0 d-inline-flex text-nowrap justify-content-center');
 	coffeeName.style.fontSize = '1.5em';
 	coffeeName.innerHTML = currentCoffee.name;
 
 	// Stuff for coffee roast
 	let coffeeRoast = document.createElement('div');
-	coffeeRoast.setAttribute('class', 'col-6 pl-1 pr-0 text-muted d-inline-flex justify-content-start align-items-center');
+	coffeeRoast.setAttribute('class', 'col-12 pl-1 pr-0 text-muted d-inline-flex justify-content-center align-items-center');
 	coffeeRoast.innerHTML = currentCoffee.roast;
 
 	coffeeSubContainer.appendChild(perCoffeeSubRow)
@@ -156,10 +156,11 @@ box.addEventListener('mousemove', runEvent);
 
 function runEvent(e) {
 	let submit = document.getElementById('submit');
-	submit.style.backgroundColor = "rgb(100," + e.offsetX + "," + e.offsetY + ")";
+	submit.style.backgroundColor = "rgb(0," + e.offsetX + "," + e.offsetY + ")";
 	let submitAmended = document.getElementById('submitAmended');
-	submitAmended.style.backgroundColor = "rgb(" + e.offsetX + "," + e.offsetY + ",50)";
+	submitAmended.style.backgroundColor = "rgb(" + e.offsetX + "," + e.offsetY + ",15)";
 }
+
 
 // What is preventDefault doing with form submit button? - Google this
 coffeeSearchBar();

@@ -1,3 +1,26 @@
+body{
+    background-color: #126e82;
+}
+
+#caffeine-container{
+    background-color: #132c33;
+}
+
+.buttonColor{
+    background-color:#d8e3e7;
+}
+
+h1,h2,label{
+    color: white;
+}
+
+#submit, #submitAmended {
+    border: white solid 1px;
+    color: white;
+}
+
+
+
 table {
     border-collapse: collapse;
     margin: 15px 0;
