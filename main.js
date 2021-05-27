@@ -142,6 +142,30 @@ var coffees = [
 	{id: 14, name: 'French', roast: 'Dark'},
 ];
 
+//Function to Add New Coffee
+function addNewCoffee (e) {
+	e.preventDefault();
+	//Gets value (Light, Medium, Dark) from second  dropdown list
+	let roastType = document.querySelector('#roastAmended').value;
+	console.log(roastType);
+	//Gets name of Coffee from Second 'Coffee Name' input
+	let coffeeName = document.querySelector('#coffeeAmended').value;
+	console.log(coffeeName);
+
+	//Creates an Object that will have the new coffee's ID #, Name and Roast like how the 'coffee's array is formatted
+	let newCoffeeObject = {};
+	newCoffeeObject.id = coffees[coffees.length-1].id + 1;
+	newCoffeeObject.name = coffeeName;
+	newCoffeeObject.roast = roastType;
+	console.log(newCoffeeObject);
+
+	//Adding Coffee Object to Coffees Array then Calls Render Coffee to update the list of Coffees being shown in Wbe browser (not perfect though)
+	coffees.push(newCoffeeObject);
+	renderCoffee(coffees);
+	console.log(coffees);
+}
+
+// Global Variables and Function Calls
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
 
@@ -150,6 +174,7 @@ renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
 
+//***************************************************
 //Changing Button Color Based on Mouse Position X,Y
 let box = document.getElementById('body');
 box.addEventListener('mousemove', runEvent);
@@ -160,14 +185,18 @@ function runEvent(e) {
 	let submitAmended = document.getElementById('submitAmended');
 	submitAmended.style.backgroundColor = "rgb(" + e.offsetX + "," + e.offsetY + ",15)";
 }
-
+//***************************************************
 
 // What is preventDefault doing with form submit button? - Google this
 coffeeSearchBar();
 
+//For filtering Coffee Selection List
 let searchCoffee = document.querySelector('#searchCoffee');
 searchCoffee.addEventListener('input', filterCoffee);
-console.log(searchCoffee);
 
 formGenesis();
+
+//Event Listener to begin adding new Coffee
+let addCoffeeSubmitButton = document.querySelector('#submitAmended');
+addCoffeeSubmitButton.addEventListener('click', addNewCoffee);
 
