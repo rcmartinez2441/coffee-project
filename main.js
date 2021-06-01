@@ -1,19 +1,21 @@
 "use strict"
 
 function renderCoffee(currentCoffee) {
+	//Contains each Coffee Sections with Roast and Coffee Name
 	let coffeeSubContainer = document.createElement('div');
 	coffeeSubContainer.setAttribute('class', 'buttonColor col-6 p-0 btn btn-outline-info d-flex justify-content-center');
 
+	// Adds a Row inside the Coffee Container for easier bootstrap styling and positioning
 	let perCoffeeSubRow = document.createElement('div');
 	perCoffeeSubRow.setAttribute('class', 'row mb-1' );
 
-	// Stuff for coffee name
+	// Stuff for coffee name Div wit Calss -Col
 	let coffeeName = document.createElement('div');
 	coffeeName.setAttribute('class', 'col-12 p-0 d-inline-flex text-nowrap justify-content-center');
 	coffeeName.style.fontSize = '1.5em';
 	coffeeName.innerHTML = currentCoffee.name;
 
-	// Stuff for coffee roast
+	// Stuff for coffee roast Div with Class Col-12
 	let coffeeRoast = document.createElement('div');
 	coffeeRoast.setAttribute('class', 'col-12 pl-1 pr-0 text-muted d-inline-flex justify-content-center align-items-center');
 	coffeeRoast.innerHTML = currentCoffee.roast;
@@ -34,7 +36,6 @@ function renderCoffees(coffeeArray) {
 
 	return coffeeContainer;
 }
-
 
 function updateCoffees(e) {
 	e.preventDefault(); // don't submit the form, we just want to update the data
@@ -153,16 +154,16 @@ function addNewCoffee (e) {
 	console.log(coffeeName);
 
 	//Creates an Object that will have the new coffee's ID #, Name and Roast like how the 'coffee's array is formatted
-	let newCoffeeObject = {};
-	newCoffeeObject.id = coffees[coffees.length-1].id + 1;
-	newCoffeeObject.name = coffeeName;
-	newCoffeeObject.roast = roastType;
+	let newCoffeeObject = {
+		id: coffees[coffees.length-1].id + 1,
+		name: coffeeName,
+		roast: roastType
+	};
 	console.log(newCoffeeObject);
 
 	//Adding Coffee Object to Coffees Array then Calls Render Coffee to update the list of Coffees being shown in Wbe browser (not perfect though)
 	coffees.push(newCoffeeObject);
-	renderCoffee(coffees);
-	console.log(coffees);
+	renderCoffees(coffees);
 }
 
 // Global Variables and Function Calls

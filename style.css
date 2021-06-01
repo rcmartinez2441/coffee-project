@@ -1,13 +1,21 @@
 body{
-    background-color: #126e82;
+    background-color: #f1ca89;
+    font-family: 'Righteous', cursive;
+
 }
 
 #caffeine-container{
-    background-color: #132c33;
+    background-color: #cc9b6d;
 }
 
 .buttonColor{
-    background-color:#d8e3e7;
+    background-color:#f2dac3;
+}
+h1 {
+    background-image: url("assets/pexels-kaboompics-com-6347.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 h1,h2,label{
