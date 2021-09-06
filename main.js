@@ -1,21 +1,22 @@
 "use strict"
 
+//Refactored 09/05/21
 function renderCoffee(currentCoffee) {
 	let coffeeSubContainer = document.createElement('div');
-	coffeeSubContainer.setAttribute('class', 'buttonColor col-6 p-0 btn btn-outline-info d-flex justify-content-center');
+	coffeeSubContainer.setAttribute('class', 'buttonColor col p-0 btn btn-outline-info');
 
 	let perCoffeeSubRow = document.createElement('div');
-	perCoffeeSubRow.setAttribute('class', 'row mb-1' );
+	perCoffeeSubRow.setAttribute('class', 'row row-cols-1 mb-1' );
 
 	// Stuff for coffee name
 	let coffeeName = document.createElement('div');
-	coffeeName.setAttribute('class', 'col-12 p-0 d-inline-flex text-nowrap justify-content-center');
+	coffeeName.setAttribute('class', 'col p-0 text-center justify-content-center');
 	coffeeName.style.fontSize = '1.5em';
 	coffeeName.innerHTML = currentCoffee.name;
 
 	// Stuff for coffee roast
 	let coffeeRoast = document.createElement('div');
-	coffeeRoast.setAttribute('class', 'col-12 pl-1 pr-0 text-muted d-inline-flex justify-content-center align-items-center');
+	coffeeRoast.setAttribute('class', 'col pl-1 pr-0 text-muted d-inline-flex justify-content-center');
 	coffeeRoast.innerHTML = currentCoffee.roast;
 
 	coffeeSubContainer.appendChild(perCoffeeSubRow)
@@ -125,7 +126,7 @@ function formGenesis() {
 }
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
-var coffees = [
+let coffees = [
 	{id: 1, name: 'Light City', roast: 'Light'},
 	{id: 2, name: 'Half City', roast: 'Light'},
 	{id: 3, name: 'Cinnamon', roast: 'Light'},
