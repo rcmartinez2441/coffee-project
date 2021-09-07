@@ -69,17 +69,23 @@ function coffeeSearchBar() {
 	formContainer.insertBefore(newNodeLabel, newNode);
 }
 
+//Refactored to allow real time filtering of coffee name on input and roast selection on "change"
 function filterCoffee() {
 	let input = searchCoffee.value.toUpperCase();
-	let i, txtValue, arrayContainer, filterCoffees;
+	let i, coffeeName, arrayContainer, filterCoffees;
 	filterCoffees = [];
 	arrayContainer = document.getElementById('coffee-container');
-	console.log(arrayContainer);
 
 	for (i = 0; i < coffees.length; i++) {
-		txtValue = coffees[i].name;
-		if (txtValue.toUpperCase().indexOf(input) > -1) {
+		coffeeName = coffees[i].name;
+		if (coffeeName.toUpperCase().indexOf(input) > -1 && (roastSelection.value == coffees[i].roast || roastSelection.value == "-")) {
 			filterCoffees.push(coffees[i]);
+		}
+		if (filterCoffees.length === 0){
+			filterCoffees.push({
+				name: "No Coffees Found",
+				roast: ""
+			})
 		}
 		console.log(filterCoffees);
 	}
@@ -194,6 +200,7 @@ coffeeSearchBar();
 //For filtering Coffee Selection List
 let searchCoffee = document.querySelector('#searchCoffee');
 searchCoffee.addEventListener('input', filterCoffee);
+roastSelection.addEventListener("change", filterCoffee)
 
 formGenesis();
 
